@@ -3,13 +3,13 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import BubbleSort from "../../components/sorting/bubble-sort/bubble-sort";
 import MergeSort from "../../components/sorting/merge-sort/merge-sort";
 import InsertionSort from "../../components/sorting/insertion-sort/insertion-sort";
 import QuickSort from "../../components/sorting/quick-sort/quick-sort";
 import SelectionSort from "../../components/sorting/selection-sort/selection-sort";
+import LinkedList from "../../components/data-structures/linked-list/linked-list";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -30,7 +30,7 @@ function TabPanel(props: TabPanelProps) {
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
@@ -68,23 +68,15 @@ export default function SimpleTabs() {
                     <Tab label="Insertion sort" {...a11yProps(2)} />
                     <Tab label="Quick sort" {...a11yProps(3)} />
                     <Tab label="Selection sort" {...a11yProps(4)} />
+                    <Tab label="Linked list" {...a11yProps(5)} />
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0}>
-                <BubbleSort/>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                <MergeSort/>
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                <InsertionSort/>
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                <QuickSort/>
-            </TabPanel>
-            <TabPanel value={value} index={4}>
-                <SelectionSort/>
-            </TabPanel>
+            <TabPanel children={<BubbleSort/>} value={value} index={0}/>
+            <TabPanel children={<MergeSort/>} value={value} index={1}/>
+            <TabPanel children={<InsertionSort/>} value={value} index={2}/>
+            <TabPanel children={<QuickSort/>} value={value} index={3}/>
+            <TabPanel children={<SelectionSort/>} value={value} index={4}/>
+            <TabPanel children={<LinkedList/>} value={value} index={5}/>
         </div>
     );
 }
