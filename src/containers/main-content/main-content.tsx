@@ -13,7 +13,7 @@ import {
 // import QuickSort from "../../components/sorting/quick-sort/quick-sort";
 // import SelectionSort from "../../components/sorting/selection-sort/selection-sort";
 import LinkedList from "./data-structures/linked-list/linked-list";
-// import Stack from "../../components/data-structures/stack/stack";
+import Queue from "./data-structures/queue/queue";
 // import Queue from "../../components/data-structures/queue/queue";
 
 const MainContent: FC = () => {
@@ -41,9 +41,9 @@ const MainContent: FC = () => {
                 {/*<Route path="/stack">*/}
                 {/*    <Stack input={''}/>*/}
                 {/*</Route>*/}
-                {/*<Route path="/queue">*/}
-                {/*    <Queue />*/}
-                {/*</Route>*/}
+                <Route path="/queue">
+                    <Queue />
+                </Route>
                 {/*<Route path="/">*/}
                 {/*    Home page*/}
                 {/*</Route>*/}

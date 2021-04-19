@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 
-const Queue: FC = () => {
+const QueueComponent: FC = () => {
 
     return (
         <React.Fragment>
@@ -11,4 +11,4 @@ const Queue: FC = () => {
 }
 
 
-export default Queue;
+export default QueueComponent;

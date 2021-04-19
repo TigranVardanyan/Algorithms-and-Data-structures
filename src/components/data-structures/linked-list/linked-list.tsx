@@ -3,36 +3,31 @@ import Button from '@material-ui/core/Button';
 import {TextField} from "@material-ui/core";
 import LinkedListDS from "../../../classes/data-structues/linked-list_DS";
 
-
-const list = new LinkedListDS()
-console.log(list)
-
 type props = {
     object: LinkedListDS<any>
 }
-console.log(
 
-)
-const LinkedListComponent: FC<props> = () => {
+const LinkedListComponent: FC<props> = ({object}) => {
 
     const [input, setInput] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput(e.target.value);
     }
+
     const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>, method: string) => {
         switch (method) {
             case 'prepend':
-                list.prepend(input);
+                object.prepend(input);
                 break;
             case 'append':
-                list.append(input)
+                object.append(input)
                 break;
             case 'printInConsole':
-                list.printInConsole()
+                object.printInConsole()
                 break;
             case 'toArray':
-                console.log(list.toArray())
+                console.log(object.toArray())
                 break;
             default:
                 return
@@ -41,11 +36,10 @@ const LinkedListComponent: FC<props> = () => {
     }
     return (
         <React.Fragment>
-            <h1>Linked list</h1>
             <TextField
                 name={'input'}
                 type="text"
-                id={"linkedList"}
+                label={"Value"}
                 variant="outlined"
                 value={input}
                 onChange={(e) => handleChange(e)}
@@ -76,7 +70,7 @@ const LinkedListComponent: FC<props> = () => {
                 variant="contained"
                 color="primary"
                 onClick={() => {
-                    console.log(list)
+                    console.log(object)
                 }}
             >
                 Console log
