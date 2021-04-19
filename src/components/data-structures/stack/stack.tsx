@@ -1,38 +1,7 @@
 import React, {FC, useState} from 'react';
 import {TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-
-interface IStack<T> {
-    push(item: T): void;
-    pop(): T | undefined;
-    peek(): T | undefined;
-    size(): number;
-}
-
-class StackDS<T> implements IStack<T> {
-    private storage: T[] = [];
-
-    constructor(private capacity: number = Infinity) {}
-
-    public push(item: T): void {
-        if (this.size() === this.capacity) {
-            console.log("Stack has reached max capacity, you cannot add more items");
-        }
-        this.storage.push(item);
-    }
-
-    public pop(): T | undefined {
-        return this.storage.pop();
-    }
-
-    public peek(): T | undefined {
-        return this.storage[this.size() - 1];
-    }
-
-    public size(): number {
-        return this.storage.length;
-    }
-}
+import StackDS from "../../../classes/data-structues/stack_DS";
 
 const stackDS = new StackDS<string>();
 
@@ -47,7 +16,7 @@ const Stack: FC<ChildProps> = () => {
 
     const [capacity, setCapacity] = useState(0);
 
-    const [stack, setStack] = useState(undefined);
+    const [stack, setStack] = useState(stackDS);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput(e.target.value);
