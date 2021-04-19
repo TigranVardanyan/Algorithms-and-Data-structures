@@ -81,7 +81,7 @@ export default function SimpleTabs() {
             <TabPanel children={<QuickSort/>} value={value} index={3}/>
             <TabPanel children={<SelectionSort/>} value={value} index={4}/>
             <TabPanel children={<LinkedList/>} value={value} index={5}/>
-            <TabPanel children={<Stack/>} value={value} index={6}/>
+            <TabPanel children={<Stack input={''}/>} value={value} index={6}/>
             <TabPanel children={<Queue/>} value={value} index={7}/>
         </div>
     );

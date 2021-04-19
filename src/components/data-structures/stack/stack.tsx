@@ -34,14 +34,32 @@ class StackDS<T> implements IStack<T> {
     }
 }
 
-const stack = new StackDS<string>(5);
+const stackDS = new StackDS<string>();
 
-const Stack: FC = () => {
+type ChildProps = {
+    input: string,
+    stack?: StackDS<string>
+}
+
+const Stack: FC<ChildProps> = () => {
 
     const [input, setInput] = useState('');
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const [capacity, setCapacity] = useState(0);
+
+    const [stack, setStack] = useState(undefined);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput(e.target.value);
+    }
+
+    const handleCapacityChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setCapacity(parseInt(e.target.value));
+    }
+
+    const handleCreateClick = (capacity: number) => {
+        setStack(new StackDS(capacity));
+        console.log(`Stack with capacity ${capacity} was created`);
     }
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>, method: string) => {
@@ -66,6 +84,27 @@ const Stack: FC = () => {
 
     return (
         <React.Fragment>
+            <div>
+                <TextField
+                    name={'input'}
+                    type="number"
+                    id={"linkedList"}
+                    variant="outlined"
+                    value={capacity}
+                    onChange={(e) => handleCapacityChange(e)}
+                />
+                <br/>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    type={"submit"}
+                    onClick={(e) => {
+                        handleCreateClick(capacity)
+                    }}
+                >
+                    Create stack
+                </Button>
+            </div>
             <h1>Stack</h1>
             <TextField
                 name={'input'}
@@ -73,7 +112,7 @@ const Stack: FC = () => {
                 id={"linkedList"}
                 variant="outlined"
                 value={input}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => handleInputChange(e)}
             />
             <br/>
             <br/>
