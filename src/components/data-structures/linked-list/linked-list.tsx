@@ -19,6 +19,8 @@ interface ILinkedList<T> {
 
     deleteNode(node: Node<T>): void;
 
+    printInConsole(linkedList: LinkedListDS<T>): void;
+
     toArray(): T[];
 
     size(): number;
@@ -66,6 +68,10 @@ class LinkedListDS<T> implements ILinkedList<T> {
         }
     }
 
+    public printInConsole(): void {
+        console.log(this)
+    }
+
     public toArray(): T[] {
         const array: T[] = [];
         if (!this.head) {
@@ -105,17 +111,27 @@ const LinkedList: FC = () => {
         setInput(e.target.value);
     }
     const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>, method: string) => {
-        if (method === 'prepend') {
-            list.prepend(input)
-        } else if (method === 'append') {
-            list.append(input)
+        switch (method) {
+            case 'prepend':
+                list.prepend(input);
+                break;
+            case 'append':
+                list.append(input)
+                break;
+            case 'printInConsole':
+                list.printInConsole()
+                break;
+            case 'toArray':
+                console.log(list.toArray())
+                break;
+            default:
+                return
         }
         setInput('');
     }
     return (
         <React.Fragment>
             <h1>Linked list</h1>
-
             <TextField
                 name={'input'}
                 type="text"
@@ -132,8 +148,7 @@ const LinkedList: FC = () => {
                 type={"submit"}
                 onClick={(e) => {
                     handleClick(e, 'append')
-                }
-                }
+                }}
             >
                 Append
             </Button>
@@ -154,17 +169,19 @@ const LinkedList: FC = () => {
                     console.log(list)
                 }}
             >
-                console log
+                Console log
             </Button>
             <Button
                 variant="contained"
                 color="primary"
-                onClick={() => {
-                    console.log(list.toArray())
+                onClick={(e) => {
+                    handleClick(e, 'toArray')
                 }}
             >
                 To array
             </Button>
+            //toDo delete node
+            //toDo size
         </React.Fragment>
     );
 }

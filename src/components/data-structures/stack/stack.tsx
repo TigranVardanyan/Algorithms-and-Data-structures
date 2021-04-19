@@ -14,60 +14,59 @@ class StackDS<T> implements IStack<T> {
 
     constructor(private capacity: number = Infinity) {}
 
-    push(item: T): void {
+    public push(item: T): void {
         if (this.size() === this.capacity) {
-            throw Error("Stack has reached max capacity, you cannot add more items");
+            console.log("Stack has reached max capacity, you cannot add more items");
         }
         this.storage.push(item);
     }
 
-    pop(): T | undefined {
+    public pop(): T | undefined {
         return this.storage.pop();
     }
 
-    peek(): T | undefined {
+    public peek(): T | undefined {
         return this.storage[this.size() - 1];
     }
 
-    size(): number {
+    public size(): number {
         return this.storage.length;
     }
 }
 
-const stack = new StackDS<string>();
-stack.push("A");
-stack.push("B");
-
-stack.size(); // Output: 2
-stack.peek(); // Output: "B"
-stack.size(); // Output: 2
-stack.pop();  // Output: "B"
-stack.size(); // Output: 1
+const stack = new StackDS<string>(5);
 
 const Stack: FC = () => {
 
     const [input, setInput] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-
+        setInput(e.target.value);
     }
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>, method: string) => {
         switch (method) {
             case "push":
+                stack.push(input);
+                break;
             case "pop":
+                console.log(stack.pop());
+                break;
             case "size":
+                console.log(stack.size())
+                break;
             case "peek":
+                console.log(stack.peek());
+                break;
             default:
-                return
+                return;
         }
+        setInput('');
     }
 
     return (
         <React.Fragment>
-
             <h1>Stack</h1>
-
             <TextField
                 name={'input'}
                 type="text"
@@ -103,7 +102,7 @@ const Stack: FC = () => {
                 color="primary"
                 type={"submit"}
                 onClick={(e) => {
-                    handleClick(e, 'pop')
+                    handleClick(e, 'peek')
                 }}
             >
                 Peek
@@ -117,6 +116,16 @@ const Stack: FC = () => {
                 }}
             >
                 Size
+            </Button>
+            <Button
+                variant="contained"
+                color="primary"
+                type={"submit"}
+                onClick={(e) => {
+                    console.log(stack)
+                }}
+            >
+                Print in console
             </Button>
 
         </React.Fragment>

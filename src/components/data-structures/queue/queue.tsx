@@ -21,7 +21,7 @@ class QueueDS<T> implements IQueue<T> {
 
     enqueue(item: T): void {
         if (this.size() === this.capacity) {
-            throw Error("Queue has reached max capacity, you cannot add more items");
+            console.log("Queue has reached max capacity, you cannot add more items");
         }
         this.storage.push(item);
     }
@@ -35,22 +35,11 @@ class QueueDS<T> implements IQueue<T> {
 
 const queue = new QueueDS<string>();
 
-queue.enqueue("A");
-queue.enqueue("B");
-
-queue.size();    // Output: 2
-queue.dequeue(); // Output: "A"
-queue.size();    // Output: 1
-
-
 const Queue: FC = () => {
 
     return (
         <React.Fragment>
-
             <h1>Queue</h1>
-
-
 
         </React.Fragment>
     );
