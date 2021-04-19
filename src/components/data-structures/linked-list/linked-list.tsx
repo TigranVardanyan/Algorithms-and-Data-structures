@@ -8,16 +8,14 @@ const list = new LinkedListDS()
 console.log(list)
 
 type props = {
-    ds: LinkedListDS<any>
+    object: LinkedListDS<any>
 }
 console.log(
 
 )
-const LinkedList: FC<props> = () => {
+const LinkedListComponent: FC<props> = () => {
 
     const [input, setInput] = useState('');
-
-
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput(e.target.value);
@@ -92,11 +90,11 @@ const LinkedList: FC<props> = () => {
             >
                 To array
             </Button>
-            //toDo delete node
-            //toDo size
+            {/*toDo delete node*/}
+            {/*toDo size*/}
         </React.Fragment>
     );
 }
 
 
-export default LinkedList;
+export default LinkedListComponent;

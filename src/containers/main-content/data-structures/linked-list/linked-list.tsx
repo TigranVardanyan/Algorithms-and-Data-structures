@@ -1,7 +1,9 @@
 import React, {FC, useState} from 'react';
-import { TextField, Button} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import LinkedListDS from "../../../../classes/data-structues/linked-list_DS";
-
+import LinkedListComponent from "../../../../components/data-structures/linked-list/linked-list";
+import ReactDOM from "react-dom";
+import App from "../../../../App";
 const LinkedList: FC = () => {
 
     return (
@@ -10,11 +12,21 @@ const LinkedList: FC = () => {
 
             <Button
                 color="primary"
+                onClick={(e) => {
+                    const linkedListObject = new LinkedListDS();
+                    const node = <LinkedListComponent object={linkedListObject} />;
+                    ReactDOM.render(
+                        <React.StrictMode>
+                            {node}
+                        </React.StrictMode>,
+                        document.getElementById('linkedListComponent')
+                    );
+                }}
             >
                 Create Linked List
             </Button>
 
-            <div id={'linkedListContainer'}>
+            <div id={'linkedListComponent'}>
 
             </div>
         </React.Fragment>
