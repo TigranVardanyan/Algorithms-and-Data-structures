@@ -6,14 +6,18 @@ import LinkedListDS from "../../../classes/data-structues/linked-list_DS";
 
 const list = new LinkedListDS()
 console.log(list)
+
 type props = {
     ds: LinkedListDS<any>
 }
+console.log(
+
+)
 const LinkedList: FC<props> = () => {
 
     const [input, setInput] = useState('');
 
-    const [linkedList, setLinkedList] = useState(props.ds)
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput(e.target.value);
