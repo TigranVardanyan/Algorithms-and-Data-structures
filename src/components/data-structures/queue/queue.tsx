@@ -7,22 +7,50 @@ class Node<T> {
     constructor(public data: T) {}
 }
 
-interface Queue<T> {
-
+interface IQueue<T> {
+    enqueue(item: T): void;
+    dequeue(): T | undefined;
+    size(): number;
 }
 
 
+class QueueDS<T> implements IQueue<T> {
+    private storage: T[] = [];
 
-class QueueDS<T> implements Queue<T> {
+    constructor(private capacity: number = Infinity) {}
 
+    enqueue(item: T): void {
+        if (this.size() === this.capacity) {
+            throw Error("Queue has reached max capacity, you cannot add more items");
+        }
+        this.storage.push(item);
+    }
+    dequeue(): T | undefined {
+        return this.storage.shift();
+    }
+    size(): number {
+        return this.storage.length;
+    }
 }
 
-const list = new QueueDS()
+const queue = new QueueDS<string>();
+
+queue.enqueue("A");
+queue.enqueue("B");
+
+queue.size();    // Output: 2
+queue.dequeue(); // Output: "A"
+queue.size();    // Output: 1
+
 
 const Queue: FC = () => {
 
     return (
         <React.Fragment>
+
+            <h1>Queue</h1>
+
+
 
         </React.Fragment>
     );

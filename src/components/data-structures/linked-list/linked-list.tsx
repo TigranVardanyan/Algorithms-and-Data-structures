@@ -96,7 +96,7 @@ class LinkedListDS<T> implements ILinkedList<T> {
 }
 
 const list = new LinkedListDS()
-
+console.log(list)
 const LinkedList: FC = () => {
 
     const [input, setInput] = useState('');
