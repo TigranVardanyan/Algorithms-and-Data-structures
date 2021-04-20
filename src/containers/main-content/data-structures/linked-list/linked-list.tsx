@@ -1,7 +1,7 @@
 import React, {Dispatch, FC, useState} from 'react';
 import ReactDOM from "react-dom";
 import { Button, ButtonGroup } from "@material-ui/core";
-import LinkedListDS from "../../../../classes/data-structues/linked-list_DS";
+import LinkedListDS from "../../../../classes/data-structues/Linked-list_DS";
 import LinkedListComponent from "../../../../components/data-structures/linked-list/linked-list";
 
 

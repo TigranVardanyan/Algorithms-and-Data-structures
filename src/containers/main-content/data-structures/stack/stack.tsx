@@ -1,6 +1,6 @@
 import React, {Dispatch, FC, useState} from 'react';
 import {TextField, Button, ButtonGroup} from "@material-ui/core";
-import StackDS from "../../../../classes/data-structues/stack_DS";
+import StackDS from "../../../../classes/data-structues/Stack_DS";
 import StackComponent from "../../../../components/data-structures/stack/stack";
 
 import ReactDOM from "react-dom";

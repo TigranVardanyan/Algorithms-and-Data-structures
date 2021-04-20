@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import QueueDS from "../../../classes/data-structues/queue_DS";
+import QueueDS from "../../../classes/data-structues/Queue_DS";
 import {ButtonGroup, Button, TextField} from "@material-ui/core";
 
 type props = {

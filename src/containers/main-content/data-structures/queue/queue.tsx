@@ -1,7 +1,7 @@
 import React, {Dispatch, FC, useState} from 'react';
 import ReactDOM from "react-dom";
 import {Button, ButtonGroup, TextField} from "@material-ui/core";
-import QueueDS from "../../../../classes/data-structues/queue_DS";
+import QueueDS from "../../../../classes/data-structues/Queue_DS";
 import QueueComponent from "../../../../components/data-structures/queue/queue";
 
 
