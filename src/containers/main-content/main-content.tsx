@@ -3,10 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import LinkedList from "./data-structures/linked-list/linked-list";
 import Queue from "./data-structures/queue/queue";
 import Stack from "./data-structures/stack/stack";
-
-import './main-content.css';
 import BubbleSort from "../../containers/main-content/sorting/bubble-sort/bubble-sort";
 import QuickSort from "../../containers/main-content/sorting/quick-sort/quick-sort";
+
+import './main-content.css';
 
 const MainContent: FC = () => {
     return (
