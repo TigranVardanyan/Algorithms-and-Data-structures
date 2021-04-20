@@ -1,12 +1,12 @@
 import React, {Dispatch, FC, useState} from 'react';
 import ReactDOM from "react-dom";
-import {Button, TextField} from "@material-ui/core";
+import {Button, ButtonGroup, TextField} from "@material-ui/core";
 import QueueDS from "../../../../classes/data-structues/queue_DS";
 import QueueComponent from "../../../../components/data-structures/queue/queue";
 
 
 const createQueueComponent = (capacity: number, setStatus: Dispatch<React.SetStateAction<boolean>>) => {
-    const queueObject = new QueueDS(capacity);
+    const queueObject = new QueueDS<string>(capacity);
     const node = <QueueComponent object={queueObject}/>;
     ReactDOM.render(
         <React.StrictMode>
@@ -43,19 +43,22 @@ const Queue: FC = () => {
                     capacityChangeHandler(e)
                 }}
             />
-            <br/>
-            <Button
-                color="primary"
-                onClick={() => { createQueueComponent(capacity, setObjectStatus) }}
-            >
-                {createText}
-            </Button>
-            <Button
-                disabled={!objectStatus}
-                onClick={() => { unmountQueueComponent() }}>
-                Delete Queue
-            </Button>
+            <br/><br/>
 
+            <ButtonGroup color="primary" aria-label="outlined primary button group">
+                <Button
+                    color="primary"
+                    onClick={() => { createQueueComponent(capacity, setObjectStatus) }}>
+                    {createText}
+                </Button>
+                <Button
+                    color="secondary"
+                    disabled={!objectStatus}
+                    onClick={() => { unmountQueueComponent() }}>
+                    Delete Queue
+                </Button>
+            </ButtonGroup>
+            <br/><br/>
             <div id={'queueComponent'}/>
         </React.Fragment>
     );

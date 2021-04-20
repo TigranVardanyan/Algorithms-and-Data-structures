@@ -3,7 +3,7 @@ import QueueDS from "../../../classes/data-structues/queue_DS";
 import {ButtonGroup, Button, TextField} from "@material-ui/core";
 
 type props = {
-    object: QueueDS<any>,
+    object: QueueDS<string>,
 }
 
 const QueueComponent: FC<props> = ({object}) => {
@@ -36,8 +36,7 @@ const QueueComponent: FC<props> = ({object}) => {
 
     return (
         <React.Fragment>
-            <h1>Queue</h1>
-
+            <hr/>
             <TextField
                 name={'input'}
                 type="text"

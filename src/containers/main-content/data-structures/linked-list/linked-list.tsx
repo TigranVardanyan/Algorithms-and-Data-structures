@@ -1,12 +1,12 @@
-import React, {FC, useState} from 'react';
+import React, {Dispatch, FC, useState} from 'react';
 import ReactDOM from "react-dom";
-import {Button} from "@material-ui/core";
+import { Button, ButtonGroup } from "@material-ui/core";
 import LinkedListDS from "../../../../classes/data-structues/linked-list_DS";
 import LinkedListComponent from "../../../../components/data-structures/linked-list/linked-list";
 
 
-const createLinkedListComponent = () => {
-    const linkedListObject = new LinkedListDS();
+const createLinkedListComponent = (setStatus: Dispatch<React.SetStateAction<boolean>>) => {
+    const linkedListObject = new LinkedListDS<string>();
     const node = <LinkedListComponent object={linkedListObject}/>;
     ReactDOM.render(
         <React.StrictMode>
@@ -14,21 +14,38 @@ const createLinkedListComponent = () => {
         </React.StrictMode>,
         document.getElementById('linkedListComponent')
     );
+    setStatus(true);
+}
+
+const unmountLinkedListComponent = (setStatus: Dispatch<React.SetStateAction<boolean>>) => {
+    ReactDOM.unmountComponentAtNode(document.getElementById('linkedListComponent')!);
+    setStatus(false);
 }
 
 const LinkedList: FC = () => {
+
+    const [objectStatus, setObjectStatus] = useState(false);
 
     return (
         <React.Fragment>
             <h1>Linked list</h1>
 
-            <Button
-                color="primary"
-                onClick={() => { createLinkedListComponent() }}
-            >
-                Create Linked List
-            </Button>
 
+            <ButtonGroup color="primary" aria-label="outlined primary button group">
+                <Button
+                    color="primary"
+                    onClick={() => { createLinkedListComponent(setObjectStatus) }}>
+                    Create Linked List
+                </Button>
+                <Button
+                    color="secondary"
+                    disabled={!objectStatus}
+                    onClick={() => { unmountLinkedListComponent(setObjectStatus) }}
+                >
+                    Delete Queue
+                </Button>
+            </ButtonGroup>
+            <br/><br/>
             <div id={'linkedListComponent'}/>
         </React.Fragment>
     );

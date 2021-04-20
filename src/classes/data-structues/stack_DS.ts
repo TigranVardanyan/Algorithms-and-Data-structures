@@ -11,10 +11,11 @@ class StackDS<T> implements IStack<T> {
     constructor(private capacity: number = Infinity) {}
 
     public push(item: T): void {
-        if (this.size() === this.capacity) {
+        if (isNaN(this.capacity) || this.size() > this.capacity) {
             console.log("Stack has reached max capacity, you cannot add more items");
+        } else {
+            this.storage.push(item);
         }
-        this.storage.push(item);
     }
 
     public pop(): T | undefined {

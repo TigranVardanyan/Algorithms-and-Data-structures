@@ -14,7 +14,7 @@ import {
 // import SelectionSort from "../../components/sorting/selection-sort/selection-sort";
 import LinkedList from "./data-structures/linked-list/linked-list";
 import Queue from "./data-structures/queue/queue";
-// import Queue from "../../components/data-structures/queue/queue";
+import Stack from "./data-structures/stack/stack";
 
 const MainContent: FC = () => {
     return (
@@ -38,9 +38,9 @@ const MainContent: FC = () => {
                 <Route path="/linked_list">
                     <LinkedList />
                 </Route>
-                {/*<Route path="/stack">*/}
-                {/*    <Stack input={''}/>*/}
-                {/*</Route>*/}
+                <Route path="/stack">
+                    <Stack />
+                </Route>
                 <Route path="/queue">
                     <Queue />
                 </Route>

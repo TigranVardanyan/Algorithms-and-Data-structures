@@ -10,10 +10,11 @@ class QueueDS<T> implements IQueue<T> {
     constructor(private capacity: number = Infinity) {}
 
     enqueue(item: T): void {
-        if (this.size() === this.capacity) {
+        if (isNaN(this.capacity) || this.size() > this.capacity) {
             console.log("Queue has reached max capacity, you cannot add more items");
+        } else {
+            this.storage.push(item);
         }
-        this.storage.push(item);
     }
     dequeue(): T | undefined {
         return this.storage.shift();

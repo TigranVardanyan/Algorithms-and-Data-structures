@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import Button from '@material-ui/core/Button';
+import {Button, ButtonGroup} from '@material-ui/core';
 import {TextField} from "@material-ui/core";
 import LinkedListDS from "../../../classes/data-structues/linked-list_DS";
 
@@ -36,6 +36,7 @@ const LinkedListComponent: FC<props> = ({object}) => {
     }
     return (
         <React.Fragment>
+            <hr/>
             <TextField
                 name={'input'}
                 type="text"
@@ -46,44 +47,46 @@ const LinkedListComponent: FC<props> = ({object}) => {
             />
             <br/>
             <br/>
-            <Button
-                variant="contained"
-                color="primary"
-                type={"submit"}
-                onClick={(e) => {
-                    handleClick(e, 'append')
-                }}
-            >
-                Append
-            </Button>
-            <Button
-                variant="contained"
-                color="primary"
-                type={"submit"}
-                onClick={(e) => {
-                    handleClick(e, 'prepend')
-                }}
-            >
-                Prepend
-            </Button>
-            <Button
-                variant="contained"
-                color="primary"
-                onClick={(e) => {
-                    handleClick(e, 'toArray')
-                }}
-            >
-                To array
-            </Button>
-            <Button
-                variant="contained"
-                color="primary"
-                onClick={() => {
-                    console.log(object)
-                }}
-            >
-                Print in console
-            </Button>
+            <ButtonGroup>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    type={"submit"}
+                    onClick={(e) => {
+                        handleClick(e, 'append')
+                    }}
+                >
+                    Append
+                </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    type={"submit"}
+                    onClick={(e) => {
+                        handleClick(e, 'prepend')
+                    }}
+                >
+                    Prepend
+                </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={(e) => {
+                        handleClick(e, 'toArray')
+                    }}
+                >
+                    To array
+                </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {
+                        console.log(object)
+                    }}
+                >
+                    Print in console
+                </Button>
+            </ButtonGroup>
             {/*toDo delete node*/}
             {/*toDo size*/}
         </React.Fragment>

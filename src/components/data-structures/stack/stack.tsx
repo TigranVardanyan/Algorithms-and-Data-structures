@@ -1,144 +1,82 @@
 import React, {FC, useState} from 'react';
-import {TextField} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
 import StackDS from "../../../classes/data-structues/stack_DS";
+import {Button, ButtonGroup, TextField} from "@material-ui/core";
 
-const stackDS = new StackDS<string>();
-
-type ChildProps = {
-    input: string,
-    stack?: StackDS<string>
+type props = {
+    object: StackDS<string>
 }
 
-const Stack: FC<ChildProps> = () => {
+const StackComponent: FC<props> = ({object}) => {
 
     const [input, setInput] = useState('');
 
-    const [capacity, setCapacity] = useState(0);
-
-    const [stack, setStack] = useState(stackDS);
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput(e.target.value);
-    }
-
-    const handleCapacityChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setCapacity(parseInt(e.target.value));
-    }
-
-    const handleCreateClick = (capacity: number) => {
-        setStack(new StackDS(capacity));
-        console.log(`Stack with capacity ${capacity} was created`);
     }
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>, method: string) => {
         switch (method) {
-            case "push":
-                stack.push(input);
+            case 'push':
+                object.push(input);
                 break;
-            case "pop":
-                console.log(stack.pop());
+            case 'pop':
+                object.pop();
                 break;
-            case "size":
-                console.log(stack.size())
+            case 'peek':
+                object.peek();
                 break;
-            case "peek":
-                console.log(stack.peek());
+            case 'size':
+                console.log(`Size - ${object.size()}`);
+                break;
+            case 'printInConsole':
+                console.log(`Queue`,object)
                 break;
             default:
-                return;
+                return
         }
         setInput('');
     }
 
     return (
         <React.Fragment>
-            <div>
+            <React.Fragment>
+                <hr/>
                 <TextField
                     name={'input'}
-                    type="number"
-                    id={"linkedList"}
+                    type="text"
+                    label={"Value"}
                     variant="outlined"
-                    value={capacity}
-                    onChange={(e) => handleCapacityChange(e)}
+                    value={input}
+                    onChange={(e) => {handleChange(e)}}
                 />
                 <br/>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    type={"submit"}
-                    onClick={(e) => {
-                        handleCreateClick(capacity)
-                    }}
-                >
-                    Create stack
-                </Button>
-            </div>
-            <h1>Stack</h1>
-            <TextField
-                name={'input'}
-                type="text"
-                id={"linkedList"}
-                variant="outlined"
-                value={input}
-                onChange={(e) => handleInputChange(e)}
-            />
-            <br/>
-            <br/>
-            <Button
-                variant="contained"
-                color="primary"
-                type={"submit"}
-                onClick={(e) => {
-                    handleClick(e, 'push')
-                }}
-            >
-                Push
-            </Button>
-            <Button
-                variant="contained"
-                color="primary"
-                type={"submit"}
-                onClick={(e) => {
-                    handleClick(e, 'pop')
-                }}
-            >
-                Pop
-            </Button>
-            <Button
-                variant="contained"
-                color="primary"
-                type={"submit"}
-                onClick={(e) => {
-                    handleClick(e, 'peek')
-                }}
-            >
-                Peek
-            </Button>
-            <Button
-                variant="contained"
-                color="primary"
-                type={"submit"}
-                onClick={(e) => {
-                    handleClick(e, 'size')
-                }}
-            >
-                Size
-            </Button>
-            <Button
-                variant="contained"
-                color="primary"
-                type={"submit"}
-                onClick={(e) => {
-                    console.log(stack)
-                }}
-            >
-                Print in console
-            </Button>
-
+                <br/>
+                <ButtonGroup color="primary" variant={'contained'} aria-label="outlined primary button group">
+                    <Button
+                        onClick={(e) => {
+                            handleClick(e, 'push')
+                        }}>Push</Button>
+                    <Button
+                        onClick={(e) => {
+                            handleClick(e, "pop")
+                        }}>Pop</Button>
+                    <Button
+                        onClick={(e) => {
+                            handleClick(e, "peek")
+                        }}>Peek</Button>
+                    <Button
+                        onClick={(e) => {
+                            handleClick(e, "size")
+                        }}>Size</Button>
+                    <Button
+                        onClick={(e) => {
+                            handleClick(e, "printInConsole")
+                        }}>Print in console</Button>
+                </ButtonGroup>
+            </React.Fragment>
         </React.Fragment>
     );
 }
 
 
-export default Stack;
+export default StackComponent;
