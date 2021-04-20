@@ -17,9 +17,13 @@ const createQueueComponent = (capacity: number, setStatus: Dispatch<React.SetSta
     setStatus(true);
 }
 
+const unmountQueueComponent = () => {
+    ReactDOM.unmountComponentAtNode(document.getElementById('queueComponent')!);
+}
+
 const Queue: FC = () => {
 
-    const [capacity, setCapacity] = useState(0);
+    const [capacity, setCapacity] = useState(10);
 
     const [objectStatus, setObjectStatus] = useState(false);
 
@@ -34,7 +38,7 @@ const Queue: FC = () => {
             <h1>Queue</h1>
 
             <TextField
-                label={"capacity"}
+                label={"Capacity"}
                 onChange={(e) => {
                     capacityChangeHandler(e)
                 }}
@@ -45,6 +49,11 @@ const Queue: FC = () => {
                 onClick={() => { createQueueComponent(capacity, setObjectStatus) }}
             >
                 {createText}
+            </Button>
+            <Button
+                disabled={!objectStatus}
+                onClick={() => { unmountQueueComponent() }}>
+                Delete Queue
             </Button>
 
             <div id={'queueComponent'}/>

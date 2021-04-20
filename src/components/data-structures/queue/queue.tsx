@@ -23,10 +23,10 @@ const QueueComponent: FC<props> = ({object}) => {
                 console.log(`Dequeued - ${object.dequeue()}`);
                 break;
             case 'size':
-                object.size()
+                console.log(`Size - ${object.size()}`);
                 break;
             case 'printInConsole':
-                console.log(object)
+                console.log(`Queue`,object)
                 break;
             default:
                 return
