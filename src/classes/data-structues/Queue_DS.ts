@@ -1,3 +1,5 @@
+//Queue class
+
 interface IQueue<T> {
     enqueue(item: T): void;
     dequeue(): T | undefined;
