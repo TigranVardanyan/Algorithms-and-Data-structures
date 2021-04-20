@@ -2,7 +2,10 @@ import React, { FC } from 'react';
 import {Button} from "@material-ui/core";
 import BubbleSort_SoA from "../../../../classes/sorting/Bubble-sort_SoA";
 import ArrayCreator from "../../../../classes/RandomArrayCreator";
-import * as d3 from "d3"
+// import BarChart from "../../../../components/bar-chart/bar-chart";
+
+import * as d3 from 'd3'
+import * as scale from 'd3-scale'
 
 import classes from "./bubble-sort.module.css";
 
@@ -10,48 +13,48 @@ import classes from "./bubble-sort.module.css";
 
 const BubbleSort: FC = () => {
 
-    const array = ArrayCreator.generateRandomArray(100000,1,300);
-    console.log(array)
+    const array = ArrayCreator.generateRandomArray(100,1,100);
+
     const Sort = new BubbleSort_SoA();
 
-    const sorting = () => {
-        console.log(Sort.sort(array));
-    }
 
-    const width = 500;
-    const height = 500;
-    const margin = 30;
-    const padding = 5;
+    const w = 1000;
+    const h = 1000;
+    console.log()
 
-    var svg = d3.select('#d3').append('svg')
-        .attr('class', classes.axis)
-        .attr('width', width)
-        .attr('height', height)
 
-    var xAxisLength = width - 2 * margin;
+    const wrapper =  d3.select('div#d3')
+        .append('svg')
+        .attr('width', w)
+        .attr('height', h)
+        .style('color', "red")
+        .style('padding', 5)
+        .style('background-color', "#ccc")
+        .style('margin-left', 5)
+        .selectAll('rect')
+        .data(Sort.sort(array))
+        .enter()
+        .append('rect')
+        .attr('x', (d, i) => i * 10)
+        .attr('y', (d, i) => h - 10 * d)
+        .attr('width', 5)
+        .attr('height', (d, i) => d * 10)
+        .attr('fill', 'tomato')
 
-    var yAxisLength = height - 2 * margin;
-
-    var scaleX = d3.scale.linear()
-        .domain([1, 13])
-        .range([0, xAxisLength]);
-
-    var scaleY = d3.scale.linear()
-        .domain([100, 0])
-        .range([0, yAxisLength]);
-
+    console.log(wrapper)
     return (
         <React.Fragment>
-            <h1>Bubble sort</h1>
+            <h1>Bubble ssort</h1>
             <Button
                 variant={"contained"}
                 color={"primary"}
-                onClick={() => { sorting() } }
+                // onClick={() => { sorting() } }
             >
                 Bubble Sort
             </Button>
 
-            <div id={'d3'}/>
+            <div id="d3">a</div>
+
         </React.Fragment>
     )
 }
