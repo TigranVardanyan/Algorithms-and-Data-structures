@@ -5,6 +5,17 @@ import LinkedListDS from "../../../../classes/data-structues/linked-list_DS";
 import LinkedListComponent from "../../../../components/data-structures/linked-list/linked-list";
 
 
+const createLinkedListComponent = () => {
+    const linkedListObject = new LinkedListDS();
+    const node = <LinkedListComponent object={linkedListObject}/>;
+    ReactDOM.render(
+        <React.StrictMode>
+            {node}
+        </React.StrictMode>,
+        document.getElementById('linkedListComponent')
+    );
+}
+
 const LinkedList: FC = () => {
 
     return (
@@ -13,21 +24,12 @@ const LinkedList: FC = () => {
 
             <Button
                 color="primary"
-                onClick={(e) => {
-                    const linkedListObject = new LinkedListDS();
-                    const node = <LinkedListComponent object={linkedListObject}/>;
-                    ReactDOM.render(
-                        <React.StrictMode>
-                            {node}
-                        </React.StrictMode>,
-                        document.getElementById('linkedListComponent')
-                    );
-                }}
+                onClick={() => { createLinkedListComponent() }}
             >
                 Create Linked List
             </Button>
 
-            <div id={'linkedListComponent'}></div>
+            <div id={'linkedListComponent'}/>
         </React.Fragment>
     );
 }

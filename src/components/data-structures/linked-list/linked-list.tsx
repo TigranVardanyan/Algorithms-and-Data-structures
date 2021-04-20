@@ -69,20 +69,20 @@ const LinkedListComponent: FC<props> = ({object}) => {
             <Button
                 variant="contained"
                 color="primary"
-                onClick={() => {
-                    console.log(object)
-                }}
-            >
-                Console log
-            </Button>
-            <Button
-                variant="contained"
-                color="primary"
                 onClick={(e) => {
                     handleClick(e, 'toArray')
                 }}
             >
                 To array
+            </Button>
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                    console.log(object)
+                }}
+            >
+                Print in console
             </Button>
             {/*toDo delete node*/}
             {/*toDo size*/}
