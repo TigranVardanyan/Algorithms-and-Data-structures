@@ -1,7 +1,9 @@
+//random array component
+
 import React, {Dispatch, FC, useState} from 'react';
 import {Button, ButtonGroup, TextField} from "@material-ui/core";
-import BubbleSort_SoA from "../../../../classes/sorting/Bubble-sort_SoA";
-import ArrayCreator from "../../../../classes/RandomArrayCreator";
+import RandomArrayCreator from "../../classes/RandomArrayCreator";
+import BubbleSort_SoA from "../../classes/sorting/Bubble-sort_SoA";
 
 type arraySettings = {
     capacity:number,
@@ -12,12 +14,14 @@ type arraySettings = {
 const createArray = (setArray: React.Dispatch<React.SetStateAction<number[]>>,
                      arraySettings: arraySettings,
                      setArrayStatus: React.Dispatch<React.SetStateAction<boolean>>) => {
-    const array = ArrayCreator.generateRandomArray(arraySettings.capacity, arraySettings.min, arraySettings.max)
+    const array = RandomArrayCreator.generateRandomArray(arraySettings.capacity, arraySettings.min, arraySettings.max)
     setArray(array);
     setArrayStatus(true);
 }
 
-const BubbleSort: FC = () => {
+const RandomArray: FC = () => {
+
+    const defaultAlgorithm = new BubbleSort_SoA();
 
     const [array, setArray] = useState([1])
 
@@ -25,10 +29,10 @@ const BubbleSort: FC = () => {
 
     const [arrayStatus, setArrayStatus] = useState(false)
 
-    const Sort = new BubbleSort_SoA();
+    const [alghorithm, setAlghorithm] = useState(defaultAlgorithm);
 
     const doSorting = (array: number[]) => {
-        console.log(Sort.sort(array));
+        // console.log(Sort.sort(array));
     }
 
     const handleArraySettingsChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,setting: string) => {
@@ -60,7 +64,7 @@ const BubbleSort: FC = () => {
 
     return (
         <React.Fragment>
-            <h1>Bubble sort</h1>
+            <h1>Create array</h1>
             <br/>
             <TextField
                 label="Capacity"
@@ -113,4 +117,4 @@ const BubbleSort: FC = () => {
     )
 }
 
-export default BubbleSort
+export default RandomArray
