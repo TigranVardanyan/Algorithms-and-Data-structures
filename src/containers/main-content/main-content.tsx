@@ -7,6 +7,9 @@ import Stack from "./data-structures/stack/stack";
 import './main-content.css';
 import BubbleSort from "../../containers/main-content/sorting/bubble-sort/bubble-sort";
 import QuickSort from "../../containers/main-content/sorting/quick-sort/quick-sort";
+import MergeSort from "../../containers/main-content/sorting/merge-sort/merge-sort";
+import InsertionSort from "../../containers/main-content/sorting/insertion-sort/insertion-sort";
+import SelectionSort from "../../containers/main-content/sorting/selection-sort/selection-sort";
 
 const MainContent: FC = () => {
     return (
@@ -15,18 +18,18 @@ const MainContent: FC = () => {
                 <Route path="/bubble_sort">
                     <BubbleSort/>
                 </Route>
-                {/*<Route path="/merge_sort">*/}
-                {/*    <MergeSort />*/}
-                {/*</Route>*/}
-                {/*<Route path="/insertion_sort">*/}
-                {/*    <InsertionSort />*/}
-                {/*</Route>*/}
+                <Route path="/merge_sort">
+                    <MergeSort />
+                </Route>
+                <Route path="/insertion_sort">
+                    <InsertionSort />
+                </Route>
                 <Route path="/quick_sort">
                     <QuickSort />
                 </Route>
-                {/*<Route path="/selection_sort">*/}
-                {/*    <SelectionSort />*/}
-                {/*</Route>*/}
+                <Route path="/selection_sort">
+                    <SelectionSort />
+                </Route>
                 <Route path="/linked_list">
                     <LinkedList />
                 </Route>

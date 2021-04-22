@@ -25,17 +25,17 @@ class QuickSort_SoA {
         return i;
     }
 
-    public quickSort(array: Array<number>, left: number = 0, right: number = array.length - 1) {
+    public sort(array: Array<number>, left: number = 0, right: number = array.length - 1) {
         let index;
         if (array.length > 1) {
             index = this.partition(array, left, right);
 
             if (left < index - 1) {
-                this.quickSort(array, left, index - 1);
+                this.sort(array, left, index - 1);
             }
 
             if (index < right) {
-                this.quickSort(array, index, right);
+                this.sort(array, index, right);
             }
         }
         return array;

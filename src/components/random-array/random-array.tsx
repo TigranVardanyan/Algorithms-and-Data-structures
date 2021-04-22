@@ -1,9 +1,9 @@
 //random array component
-
-import React, {Dispatch, FC, useState} from 'react';
+//todo change this component name
+import React, {FC, useState} from 'react';
 import {Button, ButtonGroup, TextField} from "@material-ui/core";
 import RandomArrayCreator from "../../classes/RandomArrayCreator";
-import BubbleSort_SoA from "../../classes/sorting/Bubble-sort_SoA";
+import SoA from "../../classes/sorting/SoA"
 
 type arraySettings = {
     capacity:number,
@@ -19,9 +19,11 @@ const createArray = (setArray: React.Dispatch<React.SetStateAction<number[]>>,
     setArrayStatus(true);
 }
 
-const RandomArray: FC = () => {
+type props = {
+    algorithm: SoA;
+}
 
-    const defaultAlgorithm = new BubbleSort_SoA();
+const RandomArray: FC<props> = ({algorithm} : props) => {
 
     const [array, setArray] = useState([1])
 
@@ -29,10 +31,11 @@ const RandomArray: FC = () => {
 
     const [arrayStatus, setArrayStatus] = useState(false)
 
-    const [alghorithm, setAlghorithm] = useState(defaultAlgorithm);
-
     const doSorting = (array: number[]) => {
-        // console.log(Sort.sort(array));
+        var start = performance.now();
+        console.log(algorithm.sort(array));
+        var time = performance.now() - start;
+        console.log(`Time - ${time}`)
     }
 
     const handleArraySettingsChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,setting: string) => {
@@ -60,7 +63,7 @@ const RandomArray: FC = () => {
         }
     }
 
-    const createText = !arrayStatus ? "Create array" : "Recreate array"
+    const createText = !arrayStatus ? "Create array" : "Recreate array";
 
     return (
         <React.Fragment>

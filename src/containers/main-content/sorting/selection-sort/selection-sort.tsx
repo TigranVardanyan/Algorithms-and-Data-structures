@@ -1,13 +1,13 @@
 import React, {FC} from 'react';
-import QuickSort_SoA from "../../../../classes/sorting/Quick-sort_SoA";
+import SelectionSort_SoA from "../../../../classes/sorting/Selection-sort_SoA";
 import RandomArray from "../../../../components/random-array/random-array";
 
-const algorithm = new QuickSort_SoA();
+const algorithm = new SelectionSort_SoA();
 
 const QuickSort: FC = () => {
     return (
         <React.Fragment>
-            <h1>Quick sort</h1>
+            <h1>Selection sort</h1>
             <br/>
             <RandomArray algorithm = {algorithm}/>
         </React.Fragment>
