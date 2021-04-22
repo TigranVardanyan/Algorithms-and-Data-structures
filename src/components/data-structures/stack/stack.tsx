@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import StackDS from "../../../classes/data-structues/stack_DS";
+import StackDS from "../../../classes/data-structues/Stack_DS";
 import {Button, ButtonGroup, TextField} from "@material-ui/core";
 
 type props = {

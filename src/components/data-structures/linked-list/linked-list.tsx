@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import {Button, ButtonGroup} from '@material-ui/core';
 import {TextField} from "@material-ui/core";
-import LinkedListDS from "../../../classes/data-structues/linked-list_DS";
+import LinkedListDS from "../../../classes/data-structues/Linked-list_DS";
 
 type props = {
     object: LinkedListDS<any>
