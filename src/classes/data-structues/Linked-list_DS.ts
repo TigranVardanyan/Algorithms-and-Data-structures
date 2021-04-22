@@ -1,7 +1,5 @@
 //Linked list class
 
-import DS from "./DS"
-
 class Node<T> {
     public next: Node<T> | null = null;
     public prev: Node<T> | null = null;
