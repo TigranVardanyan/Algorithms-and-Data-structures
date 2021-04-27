@@ -36,6 +36,8 @@ export default function HeaderMenu() {
             <Link className={classes.linkButton} to="/linked_list">Linked list</Link>
             <Link className={classes.linkButton} to="/stack">Stack</Link>
             <Link className={classes.linkButton} to="/queue">Queue</Link>
+            <Link className={classes.linkButton} to="/bst">BST</Link>
+
         </div>
     );
 }
