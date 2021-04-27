@@ -10,6 +10,7 @@ import QuickSort from "../../containers/main-content/sorting/quick-sort/quick-so
 import MergeSort from "../../containers/main-content/sorting/merge-sort/merge-sort";
 import InsertionSort from "../../containers/main-content/sorting/insertion-sort/insertion-sort";
 import SelectionSort from "../../containers/main-content/sorting/selection-sort/selection-sort";
+import BST from "./data-structures/bst/bst";
 
 const MainContent: FC = () => {
     return (
@@ -38,6 +39,9 @@ const MainContent: FC = () => {
                 </Route>
                 <Route path="/queue">
                     <Queue />
+                </Route>
+                <Route path="/bst">
+                    <BST />
                 </Route>
                 {/*<Route path="/">*/}
                 {/*    Home page*/}
