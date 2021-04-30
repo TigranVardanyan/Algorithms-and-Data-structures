@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-// import ReactDOM from "react-dom";
-// import { Button, ButtonGroup } from "@material-ui/core";
-import Binary_search_tree_DS from "../../../../classes/data-structues/Binary_search_tree_DS";
+import Binary_heaps_DS from "../../../../classes/data-structues/Binary_heaps_DS";
 
 
 
@@ -22,14 +20,14 @@ import Binary_search_tree_DS from "../../../../classes/data-structues/Binary_sea
 //     setStatus(false);
 // }
 
-const BST: FC = () => {
+const Binary_heaps: FC = () => {
 
     // const [objectStatus, setObjectStatus] = useState(false);
 
-    let bst = new Binary_search_tree_DS();
+    let binary_heaps = new Binary_heaps_DS();
     return (
         <React.Fragment>
-            <h1> BST </h1>
+            <h1> Binary heaps </h1>
 
 
 
@@ -54,4 +52,4 @@ const BST: FC = () => {
 }
 
 
-export default BST;
+export default Binary_heaps;

@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-// import ReactDOM from "react-dom";
-// import { Button, ButtonGroup } from "@material-ui/core";
-import Binary_search_tree_DS from "../../../../classes/data-structues/Binary_search_tree_DS";
+import Priority_queue_DS from "../../../../classes/data-structues/Priority_queue_DS";
 
 
 
@@ -22,14 +20,14 @@ import Binary_search_tree_DS from "../../../../classes/data-structues/Binary_sea
 //     setStatus(false);
 // }
 
-const BST: FC = () => {
+const Priority_queue: FC = () => {
 
     // const [objectStatus, setObjectStatus] = useState(false);
 
-    let bst = new Binary_search_tree_DS();
+    let priorityQueue = new Priority_queue_DS();
     return (
         <React.Fragment>
-            <h1> BST </h1>
+            <h1> Binary heaps </h1>
 
 
 
@@ -54,4 +52,4 @@ const BST: FC = () => {
 }
 
 
-export default BST;
+export default Priority_queue;

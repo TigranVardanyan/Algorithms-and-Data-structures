@@ -11,6 +11,8 @@ import MergeSort from "../../containers/main-content/sorting/merge-sort/merge-so
 import InsertionSort from "../../containers/main-content/sorting/insertion-sort/insertion-sort";
 import SelectionSort from "../../containers/main-content/sorting/selection-sort/selection-sort";
 import BST from "./data-structures/bst/bst";
+import Binary_heaps from "./data-structures/binary-heaps/binary-heaps";
+import Priority_queue from "./data-structures/priority-queue/priority-queue";
 
 const MainContent: FC = () => {
     return (
@@ -42,6 +44,12 @@ const MainContent: FC = () => {
                 </Route>
                 <Route path="/bst">
                     <BST />
+                </Route>
+                <Route path="/binary_heaps">
+                    <Binary_heaps />
+                </Route>
+                <Route path="/priority_queue">
+                    <Priority_queue />
                 </Route>
                 {/*<Route path="/">*/}
                 {/*    Home page*/}
