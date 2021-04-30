@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Binary_heaps_DS from "../../../../classes/data-structues/Binary_heaps_DS";
+import Priority_queue_DS from "../../../../classes/data-structues/Priority_queue_DS";
 
 
 
@@ -20,11 +20,11 @@ import Binary_heaps_DS from "../../../../classes/data-structues/Binary_heaps_DS"
 //     setStatus(false);
 // }
 
-const Binary_heaps: FC = () => {
+const Priority_queue: FC = () => {
 
     // const [objectStatus, setObjectStatus] = useState(false);
 
-    let binary_heaps = new Binary_heaps_DS();
+    let priorityQueue = new Priority_queue_DS();
     return (
         <React.Fragment>
             <h1> Binary heaps </h1>
@@ -52,4 +52,4 @@ const Binary_heaps: FC = () => {
 }
 
 
-export default Binary_heaps;
+export default Priority_queue;

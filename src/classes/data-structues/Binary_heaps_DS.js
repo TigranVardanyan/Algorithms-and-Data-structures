@@ -21,8 +21,10 @@ class Binary_heaps_DS {
   extractMax() {
     const max = this.values[0];
     const last = this.values.pop();
-    this.values[0] = last;
-    this.sinkDown();
+    if( this.values.length > 0 ) {
+      this.values[0] = last;
+      this.sinkDown();
+    }
     return max
   }
   sinkDown() {
@@ -48,6 +50,9 @@ class Binary_heaps_DS {
         }
       }
       if (swap === null) break
+      this.values[index] = this.values[swap]
+      this.values[swap] = element
+      index = swap
     }
   }
 }
@@ -55,13 +60,16 @@ class Binary_heaps_DS {
 
 let heap = new Binary_heaps_DS();
 
+heap.insert(41);
+heap.insert(39);
+heap.insert(33);
+heap.insert(18);
+heap.insert(27);
+heap.insert(12);
 heap.insert(55);
-heap.insert(8);
-heap.insert(15);
-heap.insert(62);
-heap.insert(46);
-heap.insert(1);
 
-console.log(heap)
+console.log(JSON.parse(JSON.stringify(heap)))
+heap.extractMax()
+console.log(JSON.parse(JSON.stringify(heap)))
 
 export default Binary_heaps_DS
