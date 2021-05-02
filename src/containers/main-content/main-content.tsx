@@ -52,7 +52,7 @@ const MainContent: FC = () => {
                 <Route path="/priority_queue">
                     <Priority_queue />
                 </Route>
-                <Route path="/priority_queue">
+                <Route path="/hash_tables">
                     <Hash_tables />
                 </Route>
                 {/*<Route path="/">*/}

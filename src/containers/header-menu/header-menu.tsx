@@ -41,8 +41,6 @@ export default function HeaderMenu() {
             <Link className={classes.linkButton} to="/priority_queue">Priority queue</Link>
             <Link className={classes.linkButton} to="/hash_tables">Hash tables</Link>
             <Link className={classes.linkButton} to="/graphs">Graphs</Link>
-
-
         </div>
     );
 }

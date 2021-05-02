@@ -1,40 +1,27 @@
 class Hash_tables_DS {
-    constructor() {
-        this.values = []
+    constructor(size = 4) {
+        this.keyMap = new Array(size)
+
     }
-    hash(key, arrayLen) {
-        let total = 0;
-        for(let char of key) {
-            let value = char.charCodeAt(0) - 96 // a's code
-            total = (total + value) % arrayLen
-        }
-        return total
-    }
-    hash_2(key, arrayLen) {
+    _hash(key) {
         let total = 0;
         let WEIRD_PRIME = 31;
         for(let i = 0; i < Math.min(key.length, 100); i++) {
             let char = key[i];
             let value = char.charCodeAt(0) - 96 // a's code
-            total = (total * WEIRD_PRIME + value) % arrayLen
+            total = (total * WEIRD_PRIME + value) % this.keyMap.length
         }
-        return total
+        return total;
+    }
+    set(key, value) {
+        let index = this._hash(key);
+        if (!this.keyMap[index]) {
+            this.keyMap[index] = []
+        }
+        this.keyMap[index].push([key, value])
+        return index;
     }
 }
 
-
-let table = new Hash_tables_DS()
-
-console.log('cyan', table.hash_2('cyan', 117));
-console.log('cyan', table.hash_2('cyan', 117));
-console.log('cyan', table.hash_2('cyan', 117));
-console.log('cyan', table.hash_2('cyan', 117));
-console.log('red', table.hash_2('red', 117));
-console.log('red', table.hash_2('red', 117));
-console.log('green', table.hash_2('green', 117));
-console.log('orange', table.hash_2('orange', 117));
-console.log('pink', table.hash_2('pink', 117));
-
-// 117
 
 export default Hash_tables_DS
