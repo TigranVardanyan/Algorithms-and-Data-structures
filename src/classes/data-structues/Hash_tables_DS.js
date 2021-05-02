@@ -1,5 +1,5 @@
 class Hash_tables_DS {
-    constructor(size = 4) {
+    constructor(size = 53) {
         this.keyMap = new Array(size)
 
     }
@@ -20,6 +20,44 @@ class Hash_tables_DS {
         }
         this.keyMap[index].push([key, value])
         return index;
+    }
+    get(key) {
+        let index = this._hash(key);
+        if(this.keyMap[index]) {
+            for(let i =0; i < this.keyMap[index].length; i++) {
+                if(this.keyMap[index][i][0] === key ) {
+                    return  this.keyMap[index][i][1]
+                }
+            }
+            return this.keyMap[index][1]
+        }
+        return undefined
+    }
+    values() {
+        let valuesArray = [];
+        for(let i = 0; i < this.keyMap.length; i++) {
+            if(this.keyMap[i]) {
+                for(let j = 0; j < this.keyMap[i].length; j++) {
+                    if (!valuesArray.includes(this.keyMap[i][j][1])) {
+                        valuesArray.push(this.keyMap[i][j][1])
+                    }
+                }
+            }
+        }
+        return valuesArray
+    }
+    keyes() {
+        let keysArray = [];
+        for(let i = 0; i < this.keyMap.length; i++) {
+            if(this.keyMap[i]) {
+                for(let j = 0; j < this.keyMap[i].length; j++) {
+                    if (!keysArray.includes(this.keyMap[i][j][0])) {
+                        keysArray.push(this.keyMap[i][j][0])
+                    }
+                }
+            }
+        }
+        return keysArray
     }
 }
 
