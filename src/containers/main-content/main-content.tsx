@@ -13,6 +13,7 @@ import SelectionSort from "../../containers/main-content/sorting/selection-sort/
 import BST from "./data-structures/bst/bst";
 import Binary_heaps from "./data-structures/binary-heaps/binary-heaps";
 import Priority_queue from "./data-structures/priority-queue/priority-queue";
+import Hash_tables from "./data-structures/hash-tables/hash-tables";
 
 const MainContent: FC = () => {
     return (
@@ -50,6 +51,9 @@ const MainContent: FC = () => {
                 </Route>
                 <Route path="/priority_queue">
                     <Priority_queue />
+                </Route>
+                <Route path="/hash_tables">
+                    <Hash_tables />
                 </Route>
                 {/*<Route path="/">*/}
                 {/*    Home page*/}

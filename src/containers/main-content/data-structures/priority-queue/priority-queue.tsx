@@ -27,7 +27,7 @@ const Priority_queue: FC = () => {
     let priorityQueue = new Priority_queue_DS();
     return (
         <React.Fragment>
-            <h1> Binary heaps </h1>
+            <h1> Priority queue </h1>
 
 
 

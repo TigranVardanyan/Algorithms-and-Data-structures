@@ -39,8 +39,8 @@ export default function HeaderMenu() {
             <Link className={classes.linkButton} to="/bst">BST</Link>
             <Link className={classes.linkButton} to="/binary_heaps">Binary heaps</Link>
             <Link className={classes.linkButton} to="/priority_queue">Priority queue</Link>
-
-
+            <Link className={classes.linkButton} to="/hash_tables">Hash tables</Link>
+            <Link className={classes.linkButton} to="/graphs">Graphs</Link>
         </div>
     );
 }
