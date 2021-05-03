@@ -9,8 +9,14 @@ const Graphs: FC = () => {
     graphs.addVertex('Moscow')
     graphs.addVertex('Yerevan')
     graphs.addVertex('New York')
-    graphs.addVertex('Yuzhno-Sakhalinsk')
-
+    graphs.addVertex('Washington')
+    graphs.addVertex('Los Angeles')
+    graphs.addEdge('Moscow', 'Yerevan')
+    graphs.addEdge('New York', 'Washington')
+    graphs.addEdge('New York', 'Los Angeles')
+    graphs.addEdge('Washington', 'Los Angeles')
+    // graphs.removeEdge('Yerevan', 'Moscow')
+    graphs.removeVertex('New York')
     console.log(graphs)
     return (
         <React.Fragment>
