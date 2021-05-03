@@ -29,7 +29,6 @@ class QuickSort_SoA {
         let index;
         if (array.length > 1) {
             index = this.partition(array, left, right);
-
             if (left < index - 1) {
                 this.sort(array, left, index - 1);
             }
@@ -40,6 +39,24 @@ class QuickSort_SoA {
         }
         return array;
     }
+
+    // public sort(array: Array<number>): number[] {
+    //     if (array.length < 2) {
+    //         return array
+    //     } else {
+    //         let pivot = array[0]
+    //         let less = [];
+    //         let more = [];
+    //         for (let i = 1; i < array.length; i++) {
+    //             if (array[i] > pivot) {
+    //                 more.push(array[i])
+    //             } else {
+    //                 less.push(array[i])
+    //             }
+    //         }
+    //         return this.sort(less).concat([pivot],this.sort(more));
+    //     }
+    // }
 }
 
 export default QuickSort_SoA;
