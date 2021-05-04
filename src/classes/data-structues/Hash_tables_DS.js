@@ -46,7 +46,7 @@ class Hash_tables_DS {
         }
         return valuesArray
     }
-    keyes() {
+    keys() {
         let keysArray = [];
         for(let i = 0; i < this.keyMap.length; i++) {
             if(this.keyMap[i]) {

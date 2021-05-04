@@ -21,7 +21,7 @@ const Hash_tables: FC = () => {
     console.log(hashTable)
     console.log(hashTable.get('yellow'))
     console.log(hashTable.values())
-    console.log(hashTable.keyes())
+    console.log(hashTable.keys())
     return (
         <React.Fragment>
             <h1> Hash tables </h1>
